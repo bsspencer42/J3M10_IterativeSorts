@@ -100,6 +100,43 @@ public class Sorting {
      */
     public static <T> void selectionSort(T[] arr, Comparator<T> comparator) {
         // WRITE YOUR CODE HERE (DO NOT MODIFY METHOD HEADER)!
+        // Initialize Local Vars
+        int maxVal;
+        int stopIndex = arr.length-1;
+        T temp;
+        // Helper Vars
+        int numComps=0;
+        int numSwaps=0;
+
+        System.out.println("Initial Array");
+        printArr(arr);
+        while (stopIndex != 0){
+            // Debug print
+            System.out.println("Loop " + (arr.length-stopIndex));
+            //
+
+            // Reset maxVal
+            maxVal = 0;
+            // Inner Loop
+            for (int i = 0; i <= stopIndex;i++){
+                numComps++;
+                if (comparator.compare(arr[i],arr[maxVal]) > 0){
+                    maxVal = i;
+                }
+            }
+            // Swap max val w/ end index
+            System.out.println(maxVal);
+            temp = arr[stopIndex];
+            arr[stopIndex] = arr[maxVal];
+            arr[maxVal] = temp;
+            numSwaps++;
+            //
+            printArr(arr);
+            stopIndex--;
+        }
+        // Print swaps/comps
+        System.out.println("Copmarisons: " + numComps);
+        System.out.println("Swaps      : " + numSwaps);
     }
 
     /**
@@ -143,7 +180,8 @@ public class Sorting {
                 return o1 - o2;
             }
         };
-        bubbleSort(myArr,myComp);
+        //bubbleSort(myArr,myComp);
+        selectionSort(myArr,myComp);
     }
 
 }
