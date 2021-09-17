@@ -36,6 +36,10 @@ public class Sorting {
         int numSwaps = 0;
         int lastSwap;
 
+        // Return empty array
+        if (arr.length == 0)
+            return;
+
         while (endIndex != 0){
             // Reset the lastSwap value to the default of the endIndex
             // Reset currIndex pointer
@@ -108,6 +112,10 @@ public class Sorting {
         int numComps=0;
         int numSwaps=0;
 
+        // Return empty array
+        if (arr.length == 0)
+            return;
+
         System.out.println("Initial Array");
         printArr(arr);
         while (stopIndex != 0){
@@ -135,7 +143,7 @@ public class Sorting {
             stopIndex--;
         }
         // Print swaps/comps
-        System.out.println("Copmarisons: " + numComps);
+        System.out.println("Comparisons: " + numComps);
         System.out.println("Swaps      : " + numSwaps);
     }
 
@@ -207,7 +215,7 @@ public class Sorting {
     }
 
     public static void main(String[] args) {
-        Integer[] myArr = {4,3,1,5,2,6,7};
+        Integer[] myArr = {1,2};
         Comparator<Integer> myComp = new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
