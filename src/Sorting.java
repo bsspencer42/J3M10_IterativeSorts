@@ -159,7 +159,41 @@ public class Sorting {
      */
     public static <T> void insertionSort(T[] arr, Comparator<T> comparator) {
         // WRITE YOUR CODE HERE (DO NOT MODIFY METHOD HEADER)!
-    }
+        // Local Vars
+        T temp;
+
+        // Helper Vars
+        int numComps=0;
+        int numSwaps=0;
+
+        // Print initial Arr
+        printArr(arr);
+
+        // Outer Loop
+        for (int i = 1; i < arr.length;i++){
+            int currIndex = i;
+            // While current index is less than previous, swap
+            System.out.println("Loop " + i);
+            while (currIndex > 0){
+                    if (comparator.compare(arr[currIndex],arr[currIndex-1]) < 0){
+                        // Swap values as necessary
+                        temp = arr[currIndex];
+                        arr[currIndex] = arr[currIndex-1];
+                        arr[currIndex-1] = temp;
+                        numSwaps++;
+                        printArr(arr);
+                        currIndex--;
+                    }
+                    else{
+                        currIndex=-1;
+                    }
+                numComps++;
+                }
+            // Add back at least one comp per outer loop run
+            System.out.println("Comparisons " + numComps);
+            System.out.println("Swaps " + numSwaps);
+            }
+        }
 
     public static <T> void printArr(T[] arr){
         String myString = "[";
@@ -181,7 +215,8 @@ public class Sorting {
             }
         };
         //bubbleSort(myArr,myComp);
-        selectionSort(myArr,myComp);
+        //selectionSort(myArr,myComp);
+        insertionSort(myArr,myComp);
     }
 
 }
