@@ -43,7 +43,7 @@ public class Sorting {
         while (endIndex != 0){
             // Reset the lastSwap value to the default of the endIndex
             // Reset currIndex pointer
-            lastSwap = endIndex;
+            lastSwap = currIndex;
             currIndex = 0;
 
             // Debug Printing
@@ -80,8 +80,8 @@ public class Sorting {
                 endIndex--;
             }
         }
-        System.out.println("Total comparisons: " + numComps);
-        System.out.println("Total swaps: " + numSwaps);
+        //System.out.println("Total comparisons: " + numComps);
+        //System.out.println("Total swaps: " + numSwaps);
     }
 
     /**
@@ -215,16 +215,26 @@ public class Sorting {
     }
 
     public static void main(String[] args) {
-        Integer[] myArr = {1,2};
+        Integer[] myArr = {4,2,1,3};
         Comparator<Integer> myComp = new Comparator<Integer>() {
+            int numComps;
+            int numSwaps;
             @Override
             public int compare(Integer o1, Integer o2) {
+                numComps++;
+                if (o1 -o2 > 0)
+                    numSwaps++;
+                System.out.println("Num Comps : " + numComps);
+                System.out.println("Num Swaps : " + numSwaps);
                 return o1 - o2;
             }
+            public int getComps(){
+                return numComps;
+            }
         };
-        //bubbleSort(myArr,myComp);
+        bubbleSort(myArr,myComp);
         //selectionSort(myArr,myComp);
-        insertionSort(myArr,myComp);
+        //insertionSort(myArr,myComp);
     }
 
 }
