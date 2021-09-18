@@ -126,7 +126,7 @@ public class Sorting {
             // Reset maxVal
             maxVal = 0;
             // Inner Loop
-            for (int i = 0; i <= stopIndex;i++){
+            for (int i = 1; i <= stopIndex;i++){
                 numComps++;
                 if (comparator.compare(arr[i],arr[maxVal]) > 0){
                     maxVal = i;
@@ -232,8 +232,8 @@ public class Sorting {
                 return numComps;
             }
         };
-        bubbleSort(myArr,myComp);
-        //selectionSort(myArr,myComp);
+        //bubbleSort(myArr,myComp);
+        selectionSort(myArr,myComp);
         //insertionSort(myArr,myComp);
     }
 
